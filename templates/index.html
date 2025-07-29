@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KeySystem Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2b2b3c);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+    }
+    h1 {
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    form button {
+      background-color: #4a90e2;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 16px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background-color: #357ab8;
+    }
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .log-container {
+      margin-top: 2rem;
+    }
+    .log-title {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 15px;
+    }
+    pre {
+      background-color: rgba(255, 255, 255, 0.07);
+      padding: 1rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>KeySystem Dashboard</h1>
+    <form method="post" action="/update">
+      <button type="submit">Manual Update Key</button>
+    </form>
+    {% if status %}
+      <div class="status">Status: {{ status }}</div>
+    {% endif %}
+    <div class="log-container">
+      <div class="log-title">Key Update Log</div>
+      <pre>{{ log }}</pre>
+    </div>
+  </div>
+</body>
+</html>
